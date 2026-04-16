@@ -98,10 +98,6 @@ public class RuleService {
     }
 
     private String toJson(Object obj) {
-        try {
-            return objectMapper.writeValueAsString(obj);
-        } catch (JsonProcessingException e) {
-            return obj.toString();
-        }
+        return objectMapper.writeValueAsString(obj);
     }
 }

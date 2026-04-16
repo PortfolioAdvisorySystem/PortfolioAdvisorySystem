@@ -1,8 +1,6 @@
 package com.backend.stockAllocation.service.impl;
 
-import com.backend.stockAllocation.entity.MigrationRecord;
-import com.backend.stockAllocation.entity.Portfolio;
-import com.backend.stockAllocation.entity.Position;
+import com.backend.stockAllocation.entity.*;
 import com.backend.stockAllocation.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

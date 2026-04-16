@@ -2,6 +2,9 @@ package com.backend.stockAllocation.service.impl;
 
 import com.backend.stockAllocation.entity.*;
 import com.backend.stockAllocation.repository.*;
+import com.backend.stockAllocation.rule.engine.RuleEvaluationContext;
+import com.backend.stockAllocation.rule.engine.RuleEvaluator;
+import com.backend.stockAllocation.rule.engine.StockEligibilityResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
