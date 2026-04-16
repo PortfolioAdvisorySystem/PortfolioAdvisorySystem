@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class SubscriberStrategyAllocation {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
