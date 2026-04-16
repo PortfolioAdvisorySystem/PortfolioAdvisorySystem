@@ -1,10 +1,16 @@
 package com.backend.stockAllocation.controller;
 
+import com.backend.stockAllocation.dto.request.InflowRequest;
+import com.backend.stockAllocation.dto.request.SubscriberRequest;
+import com.backend.stockAllocation.entity.Subscriber;
+import com.backend.stockAllocation.enums.SubscriberStatus;
+import com.backend.stockAllocation.service.impl.SubscriberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.BadRequestException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.backend.stockAllocation.dto.request.StrategyAllocationRequest;
 import java.util.List;
 
 @RestController
@@ -14,7 +20,7 @@ public class SubscriberController {
 
     private final SubscriberService subscriberService;
     @PostMapping
-    public ResponseEntity<Subscriber> onboard(@Valid @RequestBody SubscriberRequest request) {
+    public ResponseEntity<Subscriber> onboard(@Valid @RequestBody SubscriberRequest request) throws BadRequestException {
         return ResponseEntity.ok(subscriberService.onboard(request));
     }
     @PostMapping("/bulk")
@@ -37,7 +43,7 @@ public class SubscriberController {
     @PatchMapping("/{id}/strategy-mix")
     public ResponseEntity<Subscriber> updateStrategyMix(
             @PathVariable Long id,
-            @Valid @RequestBody List<StrategyAllocationRequest> newMix) {
+            @Valid @RequestBody List<StrategyAllocationRequest> newMix) throws BadRequestException {
         return ResponseEntity.ok(subscriberService.updateStrategyMix(id, newMix));
     }
     @PostMapping("/{id}/inflow")

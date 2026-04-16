@@ -1,5 +1,8 @@
 package com.backend.stockAllocation.controller;
 
+import com.backend.stockAllocation.dto.request.StockRequest;
+import com.backend.stockAllocation.entity.Stock;
+import com.backend.stockAllocation.service.impl.StockService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

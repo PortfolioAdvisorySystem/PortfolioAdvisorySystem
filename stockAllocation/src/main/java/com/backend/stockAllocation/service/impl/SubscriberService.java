@@ -1,11 +1,23 @@
 package com.backend.stockAllocation.service.impl;
 
+import com.backend.stockAllocation.dto.request.StrategyAllocationRequest;
+import com.backend.stockAllocation.dto.request.SubscriberRequest;
+import com.backend.stockAllocation.entity.AllocationStrategy;
+import com.backend.stockAllocation.entity.Portfolio;
+import com.backend.stockAllocation.entity.Subscriber;
+import com.backend.stockAllocation.entity.SubscriberStrategyAllocation;
+import com.backend.stockAllocation.enums.AllocationRunType;
+import com.backend.stockAllocation.enums.SubscriberStatus;
+import com.backend.stockAllocation.exception.ResourceNotFoundException;
+import com.backend.stockAllocation.repository.AllocationStrategyRepository;
+import com.backend.stockAllocation.repository.PortfolioRepository;
+import com.backend.stockAllocation.repository.SubscriberRepository;
+import com.backend.stockAllocation.repository.SubscriberStrategyAllocationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -26,7 +38,7 @@ public class SubscriberService {
      * Strategy allocations must sum to 100%.
      */
     @Transactional
-    public Subscriber onboard(SubscriberRequest request) {
+    public Subscriber onboard(SubscriberRequest request) throws BadRequestException {
         if (subscriberRepository.existsByEmail(request.getEmail())) {
             throw new BadRequestException("Email already registered: " + request.getEmail());
         }
@@ -83,7 +95,7 @@ public class SubscriberService {
      * Update subscriber's strategy mix (re-binds and triggers rebalance).
      */
     @Transactional
-    public Subscriber updateStrategyMix(Long subscriberId, List<StrategyAllocationRequest> newMix) {
+    public Subscriber updateStrategyMix(Long subscriberId, List<StrategyAllocationRequest> newMix) throws BadRequestException {
         Subscriber subscriber = getById(subscriberId);
         validateStrategyAllocations(newMix);
 
@@ -160,7 +172,7 @@ public class SubscriberService {
         }
     }
 
-    private void validateStrategyAllocations(List<StrategyAllocationRequest> allocations) {
+    private void validateStrategyAllocations(List<StrategyAllocationRequest> allocations) throws BadRequestException {
         if (allocations == null || allocations.isEmpty()) {
             throw new BadRequestException("At least one strategy allocation is required");
         }
