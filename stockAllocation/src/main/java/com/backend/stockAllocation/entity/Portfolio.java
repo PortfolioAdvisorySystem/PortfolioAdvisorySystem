@@ -28,7 +28,10 @@ public class Portfolio {
     @Builder.Default
     private List<Position> positions = new ArrayList<>();
 
+
     /** Amount not yet allocated to any stock */
+
+
     @Column(nullable = false)
     @Builder.Default
     private BigDecimal unallocatedAmount = BigDecimal.ZERO;

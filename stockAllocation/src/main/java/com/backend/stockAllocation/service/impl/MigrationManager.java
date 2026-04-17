@@ -44,6 +44,7 @@ public class MigrationManager {
         BigDecimal totalAllocated = positionRepository.sumTotalAllocated(portfolio.getId());
 
         List<Stock> eligible = new ArrayList<>();
+
         for (Stock candidate : candidates) {
             // Same or compatible sector preferred but not mandatory
             // Must pass all active rules
