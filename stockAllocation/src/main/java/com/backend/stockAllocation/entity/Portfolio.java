@@ -1,5 +1,7 @@
 package com.backend.stockAllocation.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,10 +24,12 @@ public class Portfolio {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subscriber_id", unique = true)
+    @JsonBackReference
     private Subscriber subscriber;
 
     @OneToMany(mappedBy = "portfolio", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default
+    @JsonManagedReference
     private List<Position> positions = new ArrayList<>();
 
     /** Amount not yet allocated to any stock */

@@ -1,6 +1,7 @@
 package com.backend.stockAllocation.entity;
 
 import com.backend.stockAllocation.enums.RiskCategory;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -50,6 +51,7 @@ public class Stock {
 
     @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default
+    @JsonManagedReference
     private List<Position> positions = new ArrayList<>();
 }
 

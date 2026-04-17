@@ -1,5 +1,6 @@
 package com.backend.stockAllocation.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,10 +21,12 @@ public class SubscriberStrategyAllocation {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "subscriber_id")
+    @JsonBackReference
     private Subscriber subscriber;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "strategy_id")
+    @JsonBackReference
     private AllocationStrategy strategy;
 
     @Column(nullable = false, precision = 5, scale = 2)
