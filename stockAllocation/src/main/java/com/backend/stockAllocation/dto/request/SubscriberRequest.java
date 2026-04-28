@@ -1,6 +1,7 @@
 package com.backend.stockAllocation.dto.request;
 
 import com.backend.stockAllocation.enums.RiskProfile;
+import com.backend.stockAllocation.enums.SubscriberStatus;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -21,7 +22,9 @@ public class SubscriberRequest {
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
-
+    @NotNull
+    @NotBlank(message = "password required")
+    private String password;
     @NotNull(message = "Investment amount is required")
     @DecimalMin(value = "0.01", message = "Investment amount must be positive")
     private BigDecimal investmentAmount;
@@ -32,4 +35,6 @@ public class SubscriberRequest {
     @NotEmpty(message = "At least one strategy allocation is required")
     @Valid
     private List<StrategyAllocationRequest> strategyAllocations;
+
+    private SubscriberStatus status;
 }

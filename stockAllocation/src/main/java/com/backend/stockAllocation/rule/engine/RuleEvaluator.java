@@ -11,10 +11,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Core rule engine: loads active rules, builds implementations, and evaluates them
- * against a given context. Returns a StockEligibilityResult with per-rule details.
- */
+
+ // Core rule engine: loads active rules, builds implementations, and evaluates them
+ // against a given context. Returns a StockEligibilityResult with per-rule details.
+
 @Component
 @RequiredArgsConstructor
 @Slf4j
@@ -23,17 +23,17 @@ public class RuleEvaluator {
     private final RuleRepository ruleRepository;
     private final RuleFactory ruleFactory;
 
-    /**
-     * Checks all currently active and effective rules for the given context.
-     */
+
+     // Checks all currently active and effective rules for the given context.
+
     public StockEligibilityResult checkStockEligibility(RuleEvaluationContext context) {
         List<Rule> activeRules = ruleRepository.findCurrentlyActiveRules(LocalDate.now());
         return evaluateRules(activeRules, context);
     }
 
-    /**
-     * Evaluate a specific subset of rules (e.g. for deallocation checks).
-     */
+
+     // Evaluate a specific subset of rules (e.g. for deallocation checks).
+
     public StockEligibilityResult checkWithRules(List<Rule> rules, RuleEvaluationContext context) {
         return evaluateRules(rules, context);
     }
@@ -73,9 +73,9 @@ public class RuleEvaluator {
                 .build();
     }
 
-    /**
-     * Check a stock universe and return only eligible ones.
-     */
+
+     // Check a stock universe and return only eligible ones.
+
     public List<Stock> filterEligibleStocks(List<Stock> stocks, RuleEvaluationContext contextTemplate) {
         List<Rule> activeRules = ruleRepository.findCurrentlyActiveRules(LocalDate.now());
         List<Stock> eligible = new ArrayList<>();

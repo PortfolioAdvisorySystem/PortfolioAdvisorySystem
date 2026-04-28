@@ -9,9 +9,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Aggressive: over-weights HIGH-risk, growth-oriented stocks.
- */
+
+//  Aggressive: over-weights HIGH-risk, growth-oriented stocks.
+
 @Component("AGGRESSIVE")
 public class AggressiveStrategy extends BaseAllocationStrategy {
 

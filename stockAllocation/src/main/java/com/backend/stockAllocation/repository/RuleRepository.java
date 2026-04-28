@@ -20,4 +20,6 @@ public interface RuleRepository extends JpaRepository<Rule, Long> {
             "AND (r.expiryDate IS NULL OR r.expiryDate >= :today) " +
             "ORDER BY r.priority DESC")
     List<Rule> findCurrentlyActiveRules(@Param("today") LocalDate today);
+
+    Object countByIsActiveTrue();
 }

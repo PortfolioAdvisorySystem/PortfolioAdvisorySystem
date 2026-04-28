@@ -29,10 +29,10 @@ public class DeallocationEngine {
     private final RuleEvaluator ruleEvaluator;
     private final AuditService auditService;
 
-    /**
-     * Scan all positions and mark those that violate active rules for deallocation.
-     * Returns the list of positions marked.
-     */
+
+     //Scan all positions and mark those that violate active rules for deallocation.
+     // Returns the list of positions marked.
+
 
     @Transactional
     public List<Position> detectAndMarkForDeallocation() {
@@ -82,9 +82,9 @@ public class DeallocationEngine {
         return marked;
     }
 
-    /**
-     * Execute full deallocation of a specific position.
-     */
+
+     // Execute full deallocation of a specific position.
+
     @Transactional
     public void executeDeallocation(List<Position> positions) {
         for (Position position : positions) {
@@ -119,9 +119,9 @@ public class DeallocationEngine {
         positionRepository.save(position);
     }
 
-    /**
-     * Retrieve all positions currently marked for deallocation.
-     */
+
+     // Retrieve all positions currently marked for deallocation.
+
     public List<Position> getPositionsMarkedForDeallocation() {
         return positionRepository.findByMarkedForDeallocationTrue();
     }

@@ -8,17 +8,22 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/rules")
 @RequiredArgsConstructor
-public class RuleController {
+public class                                                                                                        RuleController {
     private final RuleService ruleService;
 
     @PostMapping
     public ResponseEntity<Rule> create(@Valid @RequestBody RuleRequest request,
                                        @RequestParam(defaultValue = "admin") String createdBy) {
+
+
+      List<Integer>list = new ArrayList<>();
+      list.add(5);
         return ResponseEntity.ok(ruleService.createRule(request, createdBy));
     }
 

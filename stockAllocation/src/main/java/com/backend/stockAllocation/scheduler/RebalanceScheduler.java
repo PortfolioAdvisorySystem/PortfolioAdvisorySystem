@@ -12,10 +12,10 @@ public class RebalanceScheduler {
 
     private final RebalanceManager rebalanceManager;
 
-    /**
-     * Run scheduled rebalance every day at midnight.
-     * Cron: 0 0 0 * * ? = every day at 00:00:00
-     */
+
+     // Run scheduled rebalance every day at midnight.
+     // Cron: 0 0 0 * * ? = every day at 00:00:00
+
     @Scheduled(cron = "0 0 0 * * ?")
     public void scheduledRebalance() {
         log.info("Scheduler triggered rebalance");

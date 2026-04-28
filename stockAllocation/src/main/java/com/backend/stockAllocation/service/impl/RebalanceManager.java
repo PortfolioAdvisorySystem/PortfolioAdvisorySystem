@@ -28,13 +28,9 @@ public class RebalanceManager {
     private final RebalanceEventRepository rebalanceEventRepository;
     private final AuditService auditService;
 
-    /**
-     * Full scheduled rebalance:
-     * 1. Detect ineligible positions and mark them.
-     * 2. For each marked position, find replacements.
-     * 3. Execute migration.
-     * 4. Re-run allocation for any unallocated pools.
-     */
+
+      //Full scheduled rebalance:1. Detect ineligible positions and mark them,2. For each marked position, find replacements,3. Execute migration,4. Re-run allocation for any unallocated pools.
+
     @Transactional
     public RebalanceEvent runScheduledRebalance() {
         log.info("Starting scheduled rebalance");
@@ -69,9 +65,9 @@ public class RebalanceManager {
         return event;
     }
 
-    /**
-     * Event-driven rebalance triggered by a specific cause (e.g. rule change, stock deactivation).
-     */
+
+     //Event-driven rebalance triggered by a specific cause (e.g. rule change, stock deactivation).
+
     @Transactional
     public RebalanceEvent triggerEventRebalance(String reason, String triggeredBy) {
         log.info("Event-driven rebalance triggered: {} by {}", reason, triggeredBy);
@@ -94,9 +90,9 @@ public class RebalanceManager {
         return event;
     }
 
-    /**
-     * Trigger a full allocation run for all ACTIVE subscribers.
-     */
+
+    //  Trigger a full allocation run for all ACTIVE subscribers.
+
     @Transactional
     public void triggerAllocationRun(AllocationRunType runType) {
         List<Subscriber> active = subscriberRepository.findByStatus(SubscriberStatus.ACTIVE);
@@ -110,9 +106,9 @@ public class RebalanceManager {
         }
     }
 
-    /**
-     * Simulate rebalance without persisting — returns summary.
-     */
+
+     // Simulate rebalance without persisting — returns summary.
+
     public Map<String, Object> simulateRebalance() {
         List<Position> wouldDealloc = deallocationEngine.getPositionsMarkedForDeallocation();
         Map<String, Object> simulation = new LinkedHashMap<>();

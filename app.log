@@ -1,0 +1,102 @@
+2026-04-28T00:30:52.526+05:30  WARN 12052 --- [stockAllocation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h33m6s371ms906µs500ns).
+2026-04-28T09:15:38.081+05:30  WARN 12052 --- [stockAllocation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h44m53s791ms27µs).
+2026-04-28T10:07:42.812+05:30  INFO 12052 --- [stockAllocation] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-28T10:07:42.835+05:30  INFO 12052 --- [stockAllocation] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-04-28T10:07:42.860+05:30  INFO 12052 --- [stockAllocation] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-28T10:07:42.871+05:30  INFO 12052 --- [stockAllocation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-28T10:07:42.879+05:30  INFO 12052 --- [stockAllocation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-28T10:07:49.587+05:30  INFO 13464 --- [stockAllocation] [main] c.b.s.StockAllocationApplication         : Starting StockAllocationApplication using Java 25 with PID 13464 (C:\Users\MalayaSahu\Documents\StockAllocationProject\stockAllocation\target\classes started by MalayaSahu in C:\Users\MalayaSahu\Documents\StockAllocationProject)
+2026-04-28T10:07:49.594+05:30  INFO 13464 --- [stockAllocation] [main] c.b.s.StockAllocationApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-04-28T10:07:51.137+05:30  INFO 13464 --- [stockAllocation] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-28T10:07:51.278+05:30  INFO 13464 --- [stockAllocation] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125 ms. Found 12 JPA repository interfaces.
+2026-04-28T10:07:52.269+05:30  INFO 13464 --- [stockAllocation] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-04-28T10:07:52.285+05:30  INFO 13464 --- [stockAllocation] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-28T10:07:52.286+05:30  INFO 13464 --- [stockAllocation] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-28T10:07:52.370+05:30  INFO 13464 --- [stockAllocation] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2699 ms
+2026-04-28T10:07:52.837+05:30  INFO 13464 --- [stockAllocation] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-28T10:07:52.941+05:30  INFO 13464 --- [stockAllocation] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-28T10:07:53.586+05:30  INFO 13464 --- [stockAllocation] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-28T10:07:53.633+05:30  INFO 13464 --- [stockAllocation] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-28T10:07:53.856+05:30  INFO 13464 --- [stockAllocation] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2bda7a5b
+2026-04-28T10:07:53.857+05:30  INFO 13464 --- [stockAllocation] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-28T10:07:53.909+05:30  WARN 13464 --- [stockAllocation] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-28T10:07:53.945+05:30  INFO 13464 --- [stockAllocation] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.7
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-28T10:07:55.525+05:30  INFO 13464 --- [stockAllocation] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-28T10:07:55.646+05:30  INFO 13464 --- [stockAllocation] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-28T10:07:55.744+05:30  INFO 13464 --- [stockAllocation] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-28T10:07:57.357+05:30  WARN 13464 --- [stockAllocation] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-28T10:07:57.878+05:30  INFO 13464 --- [stockAllocation] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-04-28T10:07:57.974+05:30  INFO 13464 --- [stockAllocation] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-04-28T10:07:57.981+05:30  INFO 13464 --- [stockAllocation] [main] c.b.s.StockAllocationApplication         : Started StockAllocationApplication in 9.098 seconds (process running for 9.998)
+2026-04-28T10:07:58.145+05:30  INFO 13464 --- [stockAllocation] [main] c.b.s.config.DataInitializer             : Data initialization complete. Strategies=6, Stocks=18, Rules=8
+2026-04-28T10:09:36.122+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-28T10:09:36.122+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-28T10:09:36.122+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-04-28T10:15:22.180+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.RebalanceManager      : Event-driven rebalance triggered: Stock blacklisted: CVX by SYSTEM
+2026-04-28T10:15:22.890+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 35 marked for deallocation: 2 rule(s) failed: Stock CVX is blacklisted; Stock CVX is suspended
+2026-04-28T10:15:23.332+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 63 marked for deallocation: 2 rule(s) failed: Stock CVX is blacklisted; Stock CVX is suspended
+2026-04-28T10:15:23.348+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 77 marked for deallocation: 2 rule(s) failed: Stock CVX is blacklisted; Stock CVX is suspended
+2026-04-28T10:15:23.443+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 108 marked for deallocation: 2 rule(s) failed: Stock CVX is blacklisted; Stock CVX is suspended
+2026-04-28T10:15:23.586+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 91 marked for deallocation: 2 rule(s) failed: Stock CVX is blacklisted; Stock CVX is suspended
+2026-04-28T10:15:23.634+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 31 marked for deallocation: 1 rule(s) failed: Stock JNJ concentration 31.91% exceeds max 30.00%
+2026-04-28T10:15:23.937+05:30  INFO 13464 --- [stockAllocation] [http-nio-8080-exec-10] c.b.s.service.impl.DeallocationEngine    : Position 126 marked for deallocation: 2 rule(s) failed: Stock CVX is blacklisted; Stock CVX is suspended
+2026-04-28T10:21:56.931+05:30 ERROR 13464 --- [stockAllocation] [http-nio-8080-exec-4] c.b.s.exception.GlobalExceptionHandler   : Unhandled exception: No static resource  for request '/'.
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource  for request '/'.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:527) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:50) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-11.0.20.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.20.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.20.jar:11.0.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-04-28T10:28:17.200+05:30  INFO 13464 --- [stockAllocation] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-28T10:28:17.221+05:30  INFO 13464 --- [stockAllocation] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-04-28T10:28:17.232+05:30  INFO 13464 --- [stockAllocation] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-28T10:28:17.238+05:30  INFO 13464 --- [stockAllocation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-28T10:28:17.266+05:30  INFO 13464 --- [stockAllocation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

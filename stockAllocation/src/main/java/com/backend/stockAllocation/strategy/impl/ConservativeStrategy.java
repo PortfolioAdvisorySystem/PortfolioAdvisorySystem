@@ -9,9 +9,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Conservative: over-weights LOW-risk stocks; skips HIGH-risk.
- */
+
+ // Conservative: over-weights LOW-risk stocks; skips HIGH-risk.
+
 @Component("CONSERVATIVE")
 public class ConservativeStrategy extends BaseAllocationStrategy {
 

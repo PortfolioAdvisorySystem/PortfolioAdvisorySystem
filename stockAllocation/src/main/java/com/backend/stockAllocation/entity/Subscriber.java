@@ -2,6 +2,7 @@ package com.backend.stockAllocation.entity;
 
 import com.backend.stockAllocation.enums.RiskProfile;
 import com.backend.stockAllocation.enums.SubscriberStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,7 +28,8 @@ public class Subscriber {
 
     @Column(unique = true, nullable = false)
     private String email;
-
+    @Column(nullable = false)
+    private String password;
     @Column(nullable = false)
     private BigDecimal investmentAmount;
 
@@ -41,10 +43,12 @@ public class Subscriber {
     private SubscriberStatus status = SubscriberStatus.ACTIVE;
 
     @OneToOne(mappedBy = "subscriber", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Portfolio portfolio;
 
     @OneToMany(mappedBy = "subscriber", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default
+    @JsonManagedReference
     private List<SubscriberStrategyAllocation> strategyAllocations = new ArrayList<>();
 
     public BigDecimal getAUM() {

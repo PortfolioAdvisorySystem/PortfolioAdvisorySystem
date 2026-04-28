@@ -79,11 +79,10 @@ public abstract class BaseAllocationStrategy implements AllocationStrategyInterf
                 .valid(true)
                 .build();
     }
+    
+     //Subclasses override to assign relative weights to stocks.
+     // Default: equal weight for all stocks.
 
-    /**
-     * Subclasses override to assign relative weights to stocks.
-     * Default: equal weight for all stocks.
-     */
     protected Map<Stock, BigDecimal> computeWeights(List<Stock> stocks, AllocationStrategy config) {
         Map<Stock, BigDecimal> weights = new LinkedHashMap<>();
         for (Stock s : stocks) {

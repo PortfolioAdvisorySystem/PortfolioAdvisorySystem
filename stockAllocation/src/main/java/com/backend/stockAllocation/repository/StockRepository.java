@@ -25,4 +25,7 @@ public interface StockRepository extends JpaRepository<Stock, Long> {
 
     @Query("SELECT COUNT(DISTINCT p.portfolio.subscriber.id) FROM Position p WHERE p.stock.id = :stockId")
     long countSubscribersHoldingStock(@Param("stockId") Long stockId);
+
+
+    Object countByIsActiveTrue();
 }

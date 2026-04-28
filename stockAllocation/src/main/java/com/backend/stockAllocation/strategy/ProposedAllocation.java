@@ -13,7 +13,7 @@ import java.util.Map;
 @Builder
 public class ProposedAllocation {
     private final AllocationStrategy strategy;
-    /** stock → proposed amount */
+    // stock → proposed amount
     private final Map<Stock, BigDecimal> allocations;
     private final BigDecimal totalProposed;
     private final BigDecimal unallocated;

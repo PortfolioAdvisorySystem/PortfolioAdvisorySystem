@@ -9,9 +9,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Moderate: balanced weighting across LOW and MEDIUM; limited HIGH exposure.
- */
+
+ // Moderate: balanced weighting across LOW and MEDIUM; limited HIGH exposure.
+
 @Component("MODERATE")
 public class ModerateStrategy extends BaseAllocationStrategy {
 

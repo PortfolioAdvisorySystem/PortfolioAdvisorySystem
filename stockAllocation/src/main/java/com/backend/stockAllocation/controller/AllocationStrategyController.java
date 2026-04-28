@@ -5,6 +5,8 @@ import com.backend.stockAllocation.dto.request.AllocationStrategyRequest;
 import com.backend.stockAllocation.entity.AllocationStrategy;
 import com.backend.stockAllocation.enums.RiskProfile;
 import com.backend.stockAllocation.exception.ResourceNotFoundException;
+import com.backend.stockAllocation.mapper.dto.AllocationStrategyMapper;
+import com.backend.stockAllocation.mapper.dto.response.AllocationStrategyResponseDTO;
 import com.backend.stockAllocation.repository.AllocationStrategyRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +21,9 @@ import java.util.List;
 public class AllocationStrategyController {
 
     private final AllocationStrategyRepository strategyRepository;
-
+    private final AllocationStrategyMapper allocationStrategyMapper;
     @PostMapping
-    public ResponseEntity<AllocationStrategy> create(@Valid @RequestBody AllocationStrategyRequest req) {
+    public ResponseEntity<AllocationStrategyResponseDTO> create(@Valid @RequestBody AllocationStrategyRequest req) {
         AllocationStrategy strategy = AllocationStrategy.builder()
                 .name(req.getName())
                 .riskProfile(req.getRiskProfile())
@@ -30,22 +32,22 @@ public class AllocationStrategyController {
                 .cashBufferPercent(req.getCashBufferPercent())
                 .isActive(true)
                 .build();
-        return ResponseEntity.ok(strategyRepository.save(strategy));
+        return ResponseEntity.ok(allocationStrategyMapper.toResponseDTO(strategyRepository.save(strategy)));
     }
 
     @GetMapping
-    public ResponseEntity<List<AllocationStrategy>> getAll() {
-        return ResponseEntity.ok(strategyRepository.findByIsActiveTrue());
+    public ResponseEntity<List<AllocationStrategyResponseDTO>> getAll() {
+        return ResponseEntity.ok(allocationStrategyMapper.toResponseDTOList(strategyRepository.findByIsActiveTrue()));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AllocationStrategy> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(strategyRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("AllocationStrategy", id)));
+    public ResponseEntity<AllocationStrategyResponseDTO> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(allocationStrategyMapper.toResponseDTO(strategyRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("AllocationStrategy", id))));
     }
 
     @GetMapping("/profile/{profile}")
-    public ResponseEntity<List<AllocationStrategy>> getByProfile(@PathVariable RiskProfile profile) {
-        return ResponseEntity.ok(strategyRepository.findByRiskProfileAndIsActiveTrue(profile));
+    public ResponseEntity<List<AllocationStrategyResponseDTO>> getByProfile(@PathVariable RiskProfile profile) {
+        return ResponseEntity.ok(allocationStrategyMapper.toResponseDTOList(strategyRepository.findByRiskProfileAndIsActiveTrue(profile)));
     }
 }

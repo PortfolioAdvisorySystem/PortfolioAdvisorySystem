@@ -1,5 +1,6 @@
 package com.backend.stockAllocation.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,14 +22,17 @@ public class MigrationRecord {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "source_stock_id")
+    @JsonBackReference
     private Stock sourceStock;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "target_stock_id")
+    @JsonBackReference
     private Stock targetStock;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subscriber_id")
+    @JsonBackReference
     private Subscriber subscriber;
 
     @Column(nullable = false)

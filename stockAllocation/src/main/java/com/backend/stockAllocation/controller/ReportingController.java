@@ -2,6 +2,7 @@ package com.backend.stockAllocation.controller;
 
 import com.backend.stockAllocation.entity.MigrationRecord;
 import com.backend.stockAllocation.entity.RebalanceEvent;
+import com.backend.stockAllocation.mapper.dto.response.StrategyAllocationDTO;
 import com.backend.stockAllocation.service.impl.AuditService;
 import com.backend.stockAllocation.service.impl.ReportingService;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +26,13 @@ public class ReportingController {
     public ResponseEntity<Map<String, Object>> allocationBySubscriber(@PathVariable Long subscriberId) {
         return ResponseEntity.ok(reportingService.getAllocationBySubscriber(subscriberId));
     }
-
+    @GetMapping("/subscriber")
+    public ResponseEntity<List<Map<String,Object>>>getSubscriberReport()
+    {
+        return ResponseEntity.ok(reportingService.getSubscriberReport());
+    }
     @GetMapping("/allocation/strategy")
-    public ResponseEntity<Map<String, Object>> allocationByStrategy() {
+    public ResponseEntity<List<StrategyAllocationDTO>> allocationByStrategy() {
         return ResponseEntity.ok(reportingService.getAllocationByStrategy());
     }
 
@@ -74,5 +79,10 @@ public class ReportingController {
     @GetMapping("/audit-logs/{entityType}/{entityId}")
     public ResponseEntity<?> auditLogsForEntity(@PathVariable String entityType, @PathVariable Long entityId) {
         return ResponseEntity.ok(auditService.getLogsForEntity(entityType, entityId));
+    }
+    @GetMapping("/dashboard")
+    public ResponseEntity<Map<String, Object>>dashboardSummary()
+    {
+        return ResponseEntity.ok(reportingService.dashboardSummary());
     }
 }

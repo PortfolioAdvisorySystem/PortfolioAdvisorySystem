@@ -2,6 +2,8 @@ package com.backend.stockAllocation.controller;
 
 import com.backend.stockAllocation.entity.AllocationDecision;
 import com.backend.stockAllocation.enums.AllocationRunType;
+import com.backend.stockAllocation.mapper.dto.AllocationDecisionMapper;
+import com.backend.stockAllocation.mapper.dto.response.AllocationDecisionResponseDTO;
 import com.backend.stockAllocation.service.impl.AllocationEngine;
 import com.backend.stockAllocation.service.impl.RebalanceManager;
 import com.backend.stockAllocation.service.impl.SubscriberService;
@@ -20,9 +22,9 @@ public class AllocationController {
     private final AllocationEngine allocationEngine;
     private final RebalanceManager rebalanceManager;
     private final SubscriberService subscriberService;
-
+    private final AllocationDecisionMapper allocationDecisionMapper;
     @PostMapping("/run/{subscriberId}")
-    public ResponseEntity<List<AllocationDecision>> runForSubscriber(@PathVariable Long subscriberId, @RequestParam(defaultValue = "REBALANCE") AllocationRunType runType) {
+    public ResponseEntity<List<AllocationDecisionResponseDTO>> runForSubscriber(@PathVariable Long subscriberId, @RequestParam(defaultValue = "REBALANCE") AllocationRunType runType) {
         var subscriber = subscriberService.getById(subscriberId);
         return ResponseEntity.ok(allocationEngine.allocate(subscriber, null, runType));
     }

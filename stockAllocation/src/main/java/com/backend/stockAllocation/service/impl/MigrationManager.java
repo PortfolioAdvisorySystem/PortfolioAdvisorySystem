@@ -29,10 +29,10 @@ public class MigrationManager {
     private final RuleEvaluator ruleEvaluator;
     private final AuditService auditService;
 
-    /**
-     * Find eligible replacement stocks for a given source stock within a strategy context.
-     * Ranks by liquidity score descending then volume descending.
-     */
+
+     //Find eligible replacement stocks for a given source stock within a strategy context.
+     // Ranks by liquidity score descending then volume descending.
+
     public List<Stock> findReplacements(Stock sourceStock, Subscriber subscriber,
                                         AllocationStrategy strategy, Portfolio portfolio) {
         List<Stock> candidates = stockRepository.findByIsActiveTrueAndIsSuspendedFalseAndIsBlacklistedFalse()
@@ -81,10 +81,10 @@ public class MigrationManager {
         return eligible;
     }
 
-    /**
-     * Execute migration from deallocated positions to replacement stocks.
-     * Supports one-to-one and one-to-many (weighted redistribution).
-     */
+
+     //Execute migration from deallocated positions to replacement stocks.
+     //Supports one-to-one and one-to-many (weighted redistribution).
+
     @Transactional
     public List<MigrationRecord> executeMigration(List<Position> deallocatedPositions,
                                                   Map<Stock, List<Stock>> replacementMap) {

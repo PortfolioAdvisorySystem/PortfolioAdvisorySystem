@@ -23,9 +23,9 @@ public class ApprovalWorkflowService {
     private final AuditService auditService;
     private final ObjectMapper objectMapper;
 
-    /**
-     * Submit a high-impact command for approval.
-     */
+
+     // Submit a high-impact command for approval.
+
     @Transactional
     public ActionCommand submitCommand(ActionType actionType, Object payload, String submittedBy) {
         String stateJson;
@@ -47,9 +47,9 @@ public class ApprovalWorkflowService {
         return command;
     }
 
-    /**
-     * Reviewer approves or rejects a pending command.
-     */
+
+     // Reviewer approves or rejects a pending command.
+
     @Transactional
     public ActionCommand reviewCommand(Long commandId, String reviewedBy,
                                        boolean approved, String note) {
@@ -73,9 +73,9 @@ public class ApprovalWorkflowService {
         return command;
     }
 
-    /**
-     * Emergency override — bypasses normal approval for authorized users.
-     */
+
+     //Emergency override — bypasses normal approval for authorized users.
+
     @Transactional
     public ActionCommand emergencyOverride(ActionType actionType, Object payload, String authorizedBy) {
         String stateJson;

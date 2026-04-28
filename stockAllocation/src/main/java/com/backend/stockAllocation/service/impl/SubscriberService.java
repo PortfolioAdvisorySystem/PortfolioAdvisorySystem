@@ -33,10 +33,10 @@ public class SubscriberService {
     private final PortfolioRepository portfolioRepository;
     private final AllocationEngine allocationEngine;
     private final AuditService auditService;
-    /**
-     * Onboard a new subscriber with a multi-strategy mix.
-     * Strategy allocations must sum to 100%.
-     */
+
+     // Onboard a new subscriber with a multi-strategy mix.
+     // Strategy allocations must sum to 100%.
+
     @Transactional
     public Subscriber onboard(SubscriberRequest request) throws BadRequestException {
         if (subscriberRepository.existsByEmail(request.getEmail())) {
@@ -48,6 +48,7 @@ public class SubscriberService {
         Subscriber subscriber = Subscriber.builder()
                 .name(request.getName())
                 .email(request.getEmail())
+                .password(request.getPassword())
                 .investmentAmount(request.getInvestmentAmount())
                 .primaryRiskProfile(request.getPrimaryRiskProfile())
                 .status(SubscriberStatus.ACTIVE)
@@ -76,9 +77,9 @@ public class SubscriberService {
 
         return subscriber;
     }
-    /**
-     * Bulk import subscribers.
-     */
+
+     // Bulk import subscribers.
+
     @Transactional
     public List<Subscriber> bulkOnboard(List<SubscriberRequest> requests) {
         List<Subscriber> results = new ArrayList<>();
@@ -91,9 +92,9 @@ public class SubscriberService {
         }
         return results;
     }
-    /**
-     * Update subscriber's strategy mix (re-binds and triggers rebalance).
-     */
+
+     // Update subscriber's strategy mix (re-binds and triggers rebalance).
+
     @Transactional
     public Subscriber updateStrategyMix(Long subscriberId, List<StrategyAllocationRequest> newMix) throws BadRequestException {
         Subscriber subscriber = getById(subscriberId);

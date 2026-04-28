@@ -3,10 +3,10 @@ import org.springframework.stereotype.Component;
 import com.backend.stockAllocation.entity.Rule;
 import com.backend.stockAllocation.rule.impl.*;
 
-/**
- * Factory that maps a persisted Rule entity to its concrete implementation.
- * Add new rule types here without touching any other class.
- */
+
+ //Factory that maps a persisted Rule entity to its concrete implementation.
+ // Add new rule types here without touching any other class.
+
 @Component
 public class RuleFactory {
     public BaseRule create(Rule rule) {
