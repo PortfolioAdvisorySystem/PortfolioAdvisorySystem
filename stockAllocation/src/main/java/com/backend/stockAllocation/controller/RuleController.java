@@ -22,8 +22,6 @@ public class                                                                    
                                        @RequestParam(defaultValue = "admin") String createdBy) {
 
 
-      List<Integer>list = new ArrayList<>();
-      list.add(5);
         return ResponseEntity.ok(ruleService.createRule(request, createdBy));
     }
 
@@ -31,8 +29,11 @@ public class                                                                    
     public ResponseEntity<Rule> update(@PathVariable Long id, @Valid @RequestBody RuleRequest request, @RequestParam(defaultValue = "admin") String updatedBy) {
         return ResponseEntity.ok(ruleService.updateRule(id, request, updatedBy));
     }
-
-    @DeleteMapping("/{id}")
+   @PutMapping("/{id}/activate")
+   public ResponseEntity<Rule> activate(@PathVariable Long id, @RequestParam(defaultValue = "admin") String activatedBy) {
+       return ResponseEntity.ok(ruleService.activateRule(id, activatedBy));
+   }
+    @PutMapping("/{id}/deactivate")
     public ResponseEntity<Void> deactivate(@PathVariable Long id, @RequestParam(defaultValue = "admin") String deactivatedBy) {
         ruleService.deactivateRule(id, deactivatedBy);
         return ResponseEntity.noContent().build();

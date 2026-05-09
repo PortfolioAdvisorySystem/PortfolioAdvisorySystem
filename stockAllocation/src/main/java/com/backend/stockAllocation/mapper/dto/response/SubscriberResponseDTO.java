@@ -17,4 +17,5 @@ public class SubscriberResponseDTO {
     private RiskProfile riskProfile;
     private String plan;
     private SubscriberStatus status;
+
 }

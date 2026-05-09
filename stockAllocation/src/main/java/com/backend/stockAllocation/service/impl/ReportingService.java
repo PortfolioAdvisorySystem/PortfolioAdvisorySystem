@@ -26,8 +26,10 @@ public class ReportingService {
     private final RuleRepository ruleRepository;
     private final StockRepository stockRepository;
     private final AllocationEngine allocationEngine;
+    private final UserMapping userMapping;
     // Current allocation grouped by subscriber
-    public Map<String, Object> getAllocationBySubscriber(Long subscriberId) {
+    public Map<String, Object> getAllocationBySubscriber(Long userId) {
+        Long subscriberId=userMapping.getSubscriberIdFromUserId(userId);
         Portfolio portfolio = portfolioRepository.findBySubscriberId(subscriberId)
                 .orElseThrow(() -> new RuntimeException("Portfolio not found for subscriber " + subscriberId));
 
@@ -78,7 +80,8 @@ public class ReportingService {
     }
 
     // Migration history for a specific subscriber
-    public List<MigrationRecord> getMigrationHistoryForSubscriber(Long subscriberId) {
+    public List<MigrationRecord> getMigrationHistoryForSubscriber(Long userId) {
+        Long subscriberId=userMapping.getSubscriberIdFromUserId(userId);
         return migrationRecordRepository.findBySubscriberId(subscriberId);
     }
 
@@ -104,6 +107,7 @@ public class ReportingService {
 //        report.put("totalPositions", all.size());
 //        return report;
 //    }
+
 public List<StrategyAllocationDTO> getAllocationByStrategy() {
 
     List<Position> all = positionRepository.findAll().stream()

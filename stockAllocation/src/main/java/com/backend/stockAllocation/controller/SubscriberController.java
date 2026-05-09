@@ -1,17 +1,23 @@
 package com.backend.stockAllocation.controller;
 
 import com.backend.stockAllocation.dto.request.InflowRequest;
+import com.backend.stockAllocation.dto.request.RiskProfileReq;
 import com.backend.stockAllocation.dto.request.SubscriberRequest;
 import com.backend.stockAllocation.entity.Subscriber;
+import com.backend.stockAllocation.enums.RiskProfile;
 import com.backend.stockAllocation.enums.SubscriberStatus;
+import com.backend.stockAllocation.mapper.dto.response.AllocationStrategyResponseDTO;
 import com.backend.stockAllocation.service.impl.SubscriberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.BadRequestException;
+import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.backend.stockAllocation.dto.request.StrategyAllocationRequest;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/subscriber")
@@ -32,9 +38,9 @@ public class SubscriberController {
 
         return ResponseEntity.ok(subscriberService.getAll());
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Subscriber> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(subscriberService.getById(id));
+    @GetMapping("/{AppUserId}")
+    public ResponseEntity<Subscriber> getById(@PathVariable Long AppUserId) {
+        return ResponseEntity.ok(subscriberService.getById(AppUserId));
     }
     @GetMapping("/status/{status}")
     public ResponseEntity<List<Subscriber>> getByStatus(@PathVariable SubscriberStatus status) {
@@ -56,5 +62,18 @@ public class SubscriberController {
     public ResponseEntity<Subscriber> updateStatus(@PathVariable Long id,@RequestParam SubscriberStatus status) {
         return ResponseEntity.ok(subscriberService.updateStatus(id, status));
     }
+    @GetMapping("/strategies")
+    public ResponseEntity<List<AllocationStrategyResponseDTO>>getAllStrategies() {
+        return ResponseEntity.ok(subscriberService.getAllStrategies());
+    }
+    @GetMapping("/current-strategy/{id}")
+    public ResponseEntity<Object> getCurrentStrategy(@PathVariable Long id){
+        return ResponseEntity.ok(subscriberService.getCurrentStrategy(id));
+    }
+    @PostMapping("/create-with-risk-profile/{id}")
+    public ResponseEntity<Subscriber> createNewSubscriberWithRiskProfile(@Valid @RequestBody RiskProfileReq profile,
+                                                                      @PathVariable Long id) throws BadRequestException  {
+        return ResponseEntity.ok(subscriberService.createSubscriber(profile,id));
+     }
 
 }

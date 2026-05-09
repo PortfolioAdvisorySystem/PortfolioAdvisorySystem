@@ -4,6 +4,7 @@ import com.backend.stockAllocation.dto.request.RuleRequest;
 import com.backend.stockAllocation.entity.Rule;
 import com.backend.stockAllocation.repository.RuleRepository;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
@@ -99,5 +100,18 @@ public class RuleService {
 
     private String toJson(Object obj) {
         return objectMapper.writeValueAsString(obj);
+    }
+
+    public @Nullable Rule activateRule(Long id, String activatedBy) {
+
+        Rule rule = getById(id);
+        if (rule.isActive()) {
+            return null; // Already active
+        }
+        rule.setActive(true);
+        ruleRepository.save(rule);
+        auditService.log("RULE_ACTIVATED", "Rule " + id + " activated by " + activatedBy,
+                activatedBy, id, "Rule");
+        return rule;
     }
 }
